@@ -10,7 +10,7 @@
   border-style: inset;
   border-top: 1px solid black;
   overflow: hidden;
-  box-shadow: 0 14px 18px hsla(0, 0%, 0%, 0.2); 
+  box-shadow: 0 14px 18px #00000033; 
   z-index: 1;
   background-color: white;
   

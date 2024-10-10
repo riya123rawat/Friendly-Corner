@@ -6,7 +6,7 @@ function Prices() {
     <>
     <div className='section-3 fade-comp' id='prices'>
         <div className='pr-bgd-img'></div>
-        <div><h1>¤ &nbsp; &nbsp; Prices &nbsp; &nbsp; ¤</h1></div>
+        <div className='pr-title'><h1>¤ &nbsp; &nbsp; Prices &nbsp; &nbsp; ¤</h1></div>
         <div className='pr-tables'>
           <table>
             <thead>

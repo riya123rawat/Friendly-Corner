@@ -1,3 +1,13 @@
 :root {
-    --test-board: '1px solid red';
+    --test-board: 1px solid hsl(0, 100%, 50%);
+    --bgd: hsl(0, 0%, 100%);
+    --cont-bgd: #2c3e50;
+
+    --dark-text-color: hsl(0, 0%, 0%);
+    --light-text-color: hsl(33, 78%, 91%);
+    --accent-color: hsla(59, 76%, 48%, 0.897);
+    --prices-lght-bgd: hsla(271, 39%, 58%, 0.575);
+    --prices-drk-bgd: hsla(293, 64%, 10%, 0.753);
+    --olay-bgd-color: hsl(195, 100%, 36%);
+
 }

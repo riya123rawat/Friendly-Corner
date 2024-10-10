@@ -1,137 +1,78 @@
 /* Section 4 - Contact */
 
-#root {
+:root {
     --bgd: #E9F2F3;
+    --cont-bgd: #2c3e50;
     --text: #2c3e50;
     --menuBgd: #C1D9E9;
     --buttonClr: #C9E4D6;
     --accentClr: #D1F2EB;
+    --atique-white: #faead6;
+    /* --TEST-Border: 1px solid red; */
   }
   
 .section-4 {
+    position: relative;     /* Base setup */
     display: flex;
+    height: 60vh;
     flex-direction: column;
     align-items: center;
     justify-content: center;
     height: 100vh;
+    /* border: var(--TEST-Border); */
 }
 
 .cont-bgd-img {
-    height: 100%;
+    position: absolute;
+    top: 0px;
+    height: 90%;
     width: 100%;
     background-image: url('../Images/Jonkoping.webp');
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
-    opacity: 50%;
+    opacity: 0;
 
-    filter: sepia(100%);
+    filter: sepia(75%);
 
-    -webkit-filter: blur(5px);
-    filter: blur(5px);
-    -webkit-mask: linear-gradient(0deg, transparent, white 20%, white 80%, transparent);
-    mask: linear-gradient(0deg, transparent, white 80%, white 20%, transparent);
+    /* -webkit-filter: blur(5px); */
+    /* filter: blur(3px); */
+    /* -webkit-mask: linear-gradient(0deg, transparent, white 20%, white 80%, transparent); */
+    /* mask: linear-gradient(0deg, transparent, white 80%, white 20%, transparent); */
     
     animation: cont-fade-in linear forwards;                    /* Animation */
     animation-timeline: view();
-    animation-range: 0 60%;
+    animation-range: 150px 60%;
     
 }
 
 @keyframes cont-fade-in {
 0% { opacity: 0; }
-100% { opacity: 50%; }
+100% { opacity: 100%; }
 }
-
-
-
-
-
-
-
-
-
 
 .photo-frame {
+    /* border: var(--TEST-Border); */
+    position: absolute;
     display: inline-flex;
-    justify-content: space-between;
-    /* width: 70%; */
-    top: -200px;
-    position: relative;
+    justify-content:space-between;
+    width: 60%;
+    top: 15%;
+
+    animation: cont-fade-in linear forwards;                    /* Animation */
+    animation-timeline: view();
+    animation-range: 0px 30%;
 }
 
-.container {
-    width: 1fr;
-    border: 1px solid red;
-}
-
-.image {
-    display: block;
-    width: 100%;
-    height: 100%;
-    aspect-ratio: 1/1;
-    box-shadow: 5px 10px 8px #888888;
-}
-
-.overlay {
-    height: 0;
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    background-color: #008CBA;
-    overflow: hidden;
-    width: inherit;
-    transition: .5s ease;
-}
-
-.container:hover .overlay {
-    height: 20%;
-}
-
-.urlLink {
-    white-space: nowrap; 
-    color: white;
-    font-size: 20px;
-    position: absolute;
-    overflow: hidden;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    -ms-transform: translate(-50%, -50%);
-}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-.section-4 .cont-text {
-    background-color: #2c3e50;
-    color: antiquewhite;
+.cont-text {
+    background-color: var(--cont-bgd);
+    color: var(--atique-white);
     display: flex;
     flex-direction: column;
-    position: relative;
-    top: -50px;                        /* Text offset */
-    height: 50%;
-    padding-bottom: 40px;
+    position: absolute;
+    bottom: 0px;                        /* Text offset */
+    height: 25%;
+    padding-bottom: 50px;
     width: 100vw;
     text-align: center;
     /* border: 1px solid red; */
@@ -139,12 +80,12 @@
 }
 
 .cont-text h1 {
-    padding: 30px;
+    padding: 30px 0 0 0;
     margin-bottom: 50px;
     /* border: 1px solid red; */
 }
 
-.section-4 .cont-text .cont-tables {
+.cont-tables {
     height: 80%;
     width: 100%;
     display: flex;
@@ -164,4 +105,10 @@
 .email:visited {
     text-decoration: none;
     color: var(--text);
+}
+
+@media(max-width: 800px) {
+    .section-4 {
+        height: 80vh;
+    }
 }

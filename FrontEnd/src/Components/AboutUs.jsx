@@ -5,7 +5,7 @@ function AboutUs() {
     return(
         <>
         <div className='section-1' id='about-us'>
-            <h1> ~ &nbsp; About us &nbsp; ~</h1>
+            <h1> &nbsp;  &nbsp; </h1>
             <br />
             <div className='about-sub'>
                 <form className='portal' action="">

@@ -5,11 +5,12 @@
 .section-0 {
     position: relative;
     display: flex;
+    columns: 3 30%;
     flex-direction: column;
     align-items: center;
     justify-content: center;
     height: 60vh;
-    width: 100%;
+    width: min 100%;
 }
 
 .wc-bgd-img {
@@ -18,11 +19,12 @@
     height: 100%;
     width: 100%;
     z-index: 0;
+    filter:sepia(100%);
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
-    -webkit-filter: blur(4px);
-    filter: blur(4px);
+    /* -webkit-filter: blur(4px); */
+    /* filter: blur(4px); */
     /* -webkit-mask: linear-gradient(0deg, transparent, white 20%, white 80%, transparent); */
     /* mask: linear-gradient(0deg, transparent, white 80%, white 20%, transparent); */
     -webkit-mask-image: linear-gradient(linear, left top, right bottom, from(rgba(0,0,0,1)), to(rgba(0,0,0,0)));
@@ -48,41 +50,61 @@
     85%, 100% { opacity: 0; scale: 2 }
 }
 
-
 .wcome-text {
-    background-color: rgba(0, 0, 0, 0.452);
+    background-color: rgba(250, 235, 215, 0.534);
     color: white;
     font-weight: bold;
-    border-radius: 10px 80px 10px 80px;
-    border-style: inset;
-    /* border: 1px solid red; */
+    border-style: initial;
     overflow: hidden;
     position: absolute;
-    top: 40%;
-    left: 50%;
-    transform: translate(-50%, -50%);
+    /* top: 40%; */
+    /* left: 20%; */
+    /* transform: translate(10%, -25%); */
     z-index: 1;
-    width: 35%;
+    width: 60%;
     padding: 20px 20px 20px 15px;
     text-wrap: inherit;
-    letter-spacing: 1px;
+    letter-spacing: 5px;
     text-align: center;
+
     animation: slide-in;                   /* Animation */
     animation-duration: 1s;
     animation-iteration-count: 1;
-    
+
+    animation: w-fade-in;                    /* Animation */
+    animation-duration: 3s;
+    animation-iteration-count: 1;
+
     -webkit-mask-image: url('../Images/Background.webp');
     mask-image: url('../Images/Background.webp');
     mask-repeat: no-repeat;
 }
 
 .wcome-text h1 {
-    font-size: 3.2em;
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    text-transform: uppercase;
+    font-size: 400px;
     line-height: 1.1;
+    filter:brightness(70%);
+
+    position: relative;
+    z-index: 1;
+    background-image: url('../Images/Background.webp');
+    background-blend-mode: difference;
+    background-size: 100%;
+    background-position: 0% 255%;
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+    
 }
 
 .wcome-text p {
-    font-size: 1.5rem;
+    text-transform: uppercase;
+    color: #000;
+    font-size: 2rem;
+    
 }
 
 
@@ -97,7 +119,7 @@
     }
 
     .wcome-text h1 {
-      font-size: 1.5em;
+      font-size: 1.5rem;
       line-height: .8;
     }
 
