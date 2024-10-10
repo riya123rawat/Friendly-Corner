@@ -1,7 +1,8 @@
 import './Welcome.css';
 
 function Welcome() {
-
+    var w_width = window.innerWidth;
+    console.log(w_width);
     return(
         <>
         <div className='section-0' id='welcome'>
