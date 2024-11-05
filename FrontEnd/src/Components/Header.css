@@ -1,17 +1,21 @@
-@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
-:root{
-  --bgd: #ffffff;
-  --text-color: hsl(0, 0%, 0%);
-  --accent-color: hsla(59, 76%, 48%, 0.897);
+header {
+  position: sticky;
+  top: 0;
+  z-index: 3;
 }
 
 nav{
-  height: 60px;
-  background-color: var(--bgd);
+  font-family: 'DM Sans', serif;
+  height: 100px;
+  background-color: rgb(35, 31, 32);
   display: flex;
   justify-content: flex-end;
   align-items: center;
   z-index: 2;
+}
+
+.logo {
+  width: 100%;
 }
 
 .links-container{
@@ -20,20 +24,29 @@ nav{
   display: flex;
   flex-direction: row;
   align-items: center;
-  justify-content: end;
 }
 
 ._link{
   height: 100%;
   padding: 0 20px;
   display: flex;
-  align-items: center;
+  align-items: flex-end;
   text-decoration: none;
-  color: var(--text-color);
+  color: #fff5e9;
+  padding-bottom: 50px;
 }
 
-._link:hover{
-  color: var(--accent-color);
+._link:hover {
+  color: rgb(172, 107, 105);
+  transition: .5s;
+}
+
+svg {
+  fill: #fff5e9;
+}
+
+svg:hover {
+  fill: rgb(172, 107, 105);
   transition: .5s;
 }
 
@@ -45,7 +58,7 @@ nav{
   display: none;
 }
 
-@media(max-width: 800px){
+@media screen and (max-width: 840px) {
 
   .links-container{
     flex-direction: column;
@@ -55,8 +68,8 @@ nav{
     top: 0;
     right: -100%;
     z-index: 10;
-    width: 200px;
-    background-color: var(--bgd);
+    width: 150px;
+    background-color: rgb(35, 31, 32);
     box-shadow: -5px 0 5px rgba(0, 0, 0, 0.25);
     transition: 0.75s ease-out;
   }
@@ -65,7 +78,7 @@ nav{
     box-sizing: border-box;
     height: auto;
     width: 100%;
-    padding: 20px 30px;
+    padding: 20px 30px 10px 20px;
     justify-content: flex-start;
   }
 
@@ -85,5 +98,14 @@ nav{
     top: 0;
     left: 0;
     z-index: 9;
+  }
+
+  .logo img {
+    height: 60px;
+  }
+
+  .svg-cont svg {
+    width: 20px;
+    height: 50px;
   }
 }

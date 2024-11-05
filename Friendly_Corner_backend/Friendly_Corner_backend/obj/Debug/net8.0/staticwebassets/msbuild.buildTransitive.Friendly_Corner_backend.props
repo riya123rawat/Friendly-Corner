@@ -1,0 +1,3 @@
+﻿<Project>
+  <Import Project="..\buildMultiTargeting\Friendly_Corner_backend.props" />
+</Project>

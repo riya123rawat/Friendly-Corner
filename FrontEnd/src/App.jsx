@@ -1,23 +1,46 @@
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import React, { useRef } from "react";
+
 import Header from './Components/Header';
-import Body from './Components/Body';
-import Login from './Components/Login';
+import Home from './Components/Home';
+import Office from './Components/Office';
+import MeetingRoom from './Components/MeetRoom';
+import Butik from './Components/Butik';
+import ContactUs from './Components/ContactUs';
+import AdminPage from './Components/AdminPage';
+import UserPage from './Components/UserPage';
+
 import Footer from './Components/Footer';
-import Register from './Components/Register';
-import FloatLogo from './Components/floatImg';
+import LoginModal from './Components/LoginModal';
+
 
 function App() {
+  
+  const loginModalRef = useRef(null);
+
+  function openLoginModal() {
+    if (loginModalRef.current) {
+      loginModalRef.current.openModal();
+    }
+  }
+
   return (
     <Router>
-      <div className="App">
-        <Header />
-        <FloatLogo />
-        <Routes>
-          <Route path="/" element={<Body />} />
-          <Route path="/login" element={<Login />} />
-          <Route path="/register" element={<Register />} />
-        </Routes>
+      <div className="App" id='App'>
+        <Header onLoginClick={openLoginModal}/>
+          <Routes>
+            <Route path="/" element={<Home />} />
+            <Route path="/office" element={<Office />} />
+            <Route path="/meetingroom" element={<MeetingRoom />} /> 
+            <Route path="/butik" element={<Butik />} />
+            <Route path="/contactus" element={<ContactUs />} />
+            <Route path="/admin" element={<AdminPage />} />
+            <Route path="/user" element={<UserPage />} />
+          </Routes>
+
+          <LoginModal ref={loginModalRef} />
         <Footer />
+
       </div>
     </Router>
   );

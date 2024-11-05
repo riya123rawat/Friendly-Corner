@@ -1,0 +1,3 @@
+﻿<Project>
+  <Import Project="..\build\Friendly_Corner_backend.props" />
+</Project>

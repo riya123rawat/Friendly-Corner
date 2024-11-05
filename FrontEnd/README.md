@@ -2,4 +2,6 @@ prerequisites:
 React w. Javascript
 React Router Dom
 React Router Hash Link
-Swiper
+React Modal
+React-icons
+Axios
