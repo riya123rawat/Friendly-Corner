@@ -141,15 +141,14 @@ const LoginModal = forwardRef((props, ref) => {
                                     className="icon-button"
                                     type="button"
                                     onClick={togglePasswordVisibility}
-                                    title={showPassword ? "Hide password" : "Show password"} // Toolti
-                                    >
+                                    title={showPassword ? "Hide password" : "Show password"}>
                                     {showPassword ? <FaEyeSlash /> : <FaEye />}
                                 </button>
                             </div>
                         </div>
                         
                         <div>
-                            <label>
+                            <label className="remember-me">
                                 <input
                                     className="remember-me"
                                     type="checkbox"

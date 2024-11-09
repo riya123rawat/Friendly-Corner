@@ -2,12 +2,13 @@ header {
   position: sticky;
   top: 0;
   z-index: 3;
+  overflow: hidden;
 }
 
 nav{
   font-family: 'DM Sans', serif;
   height: 100px;
-  background-color: rgb(35, 31, 32);
+  background-color: var(--clr-bgd-header);
   display: flex;
   justify-content: flex-end;
   align-items: center;
@@ -24,6 +25,7 @@ nav{
   display: flex;
   flex-direction: row;
   align-items: center;
+  justify-content: end;
 }
 
 ._link{
@@ -32,21 +34,21 @@ nav{
   display: flex;
   align-items: flex-end;
   text-decoration: none;
-  color: #fff5e9;
+  color: var(--clr-font-light);
   padding-bottom: 50px;
 }
 
 ._link:hover {
-  color: rgb(172, 107, 105);
+  color: var(--clr-bgd-brown);
   transition: .5s;
 }
 
 svg {
-  fill: #fff5e9;
+  fill: var(--clr-font-light);
 }
 
 svg:hover {
-  fill: rgb(172, 107, 105);
+  fill: var(--clr-bgd-brown);
   transition: .5s;
 }
 
@@ -69,7 +71,7 @@ svg:hover {
     right: -100%;
     z-index: 10;
     width: 150px;
-    background-color: rgb(35, 31, 32);
+    background-color: var(--clr-bgd-header);
     box-shadow: -5px 0 5px rgba(0, 0, 0, 0.25);
     transition: 0.75s ease-out;
   }

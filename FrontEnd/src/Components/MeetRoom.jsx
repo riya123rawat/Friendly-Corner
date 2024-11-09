@@ -5,7 +5,7 @@ function MeetingRoom() {
     return(
         <>
         <div className="wrapper">
-            <div className='section-2 section' id='meetingRoom'>
+            <div className='section-2' id='meetingRoom'>
                 <div className='meetingRoom-bgd-img'></div>
             </div>
             <div className="meetingRoom-sub sub">
@@ -18,7 +18,7 @@ function MeetingRoom() {
 
                     <p>Ett mötesrum utöver det vanliga, måste upplevas.</p>
                     <p>Du hittar oss i mysiga Tändsticksområdet, i en lugn och unik miljö.</p>
-                    <p>Trevliga restauranger runt hörnet och nära till tåg och buss.</p><br />
+                    <p>Trevliga restauranger runt hörnet och nära till tåg och buss.</p><br /><br />
 
                     <p>Heldag 3 000 kr</p>
                     <p>Halvdag 1 800 kr</p>
@@ -29,9 +29,8 @@ function MeetingRoom() {
                     <p>(priser exklusive moms)</p>
                 </div>
             </div>
-            <div className="section">
-
-            <div className='meetRoom-post-img'></div>
+            <div className="section-2-2">
+                <div className='meetRoom-post-img'></div>
             </div>
         </div>
         </>
@@ -39,4 +38,4 @@ function MeetingRoom() {
 
 }
 
-export default MeetingRoom
+export default MeetingRoom;

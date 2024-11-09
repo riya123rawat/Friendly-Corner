@@ -1,79 +1,77 @@
+/* Common settings */
+
 .wrapper {
   display: block;
   flex-direction: column;
-  position: relative;
-  min-height: 100vh;
-  width: 100%;
-  
+  justify-content: center;
   text-align: center;
-  box-sizing: content;
+  overflow: hidden;
 }
 
-/* Background picture */
+/* Background picture container */
 .section {
-  height: 55vh;
-  width: 100%;
-}
-
-.wc-bgd-img {
-  background-image: url('../Images/friendly-cornerShort-min.png');
-  background-repeat: no-repeat;
-  background-size: cover;
-  
-  height: 100%;
-  width: 100%;
+  height: clamp(200px, 60vw, 90vh);
 }
 
 /* Secondary container */
 .sub {
   display: flex;
   justify-content: center;
-
-  height: 35vh;
-  width: 100%;
-  padding-bottom: 50px;
-}
-
-/* About us */
-.about-sub {
-  background-color: rgb(172, 107, 105);
-  color: #fff5e9;
+  align-items: center;
+  height: clamp(300px, 40vw, 450px);
+  padding-top: clamp(5px, 10px, 15px);
+  padding-bottom: clamp(10px, 55px, 20px);
 }
 
 /* Text container */
 .text {
-  font-family: 'DM Sans', serif;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  height: 100%;
-  width: 55rem;
-  
+  font-family: var(--ff-text);
+  display: block;
+  /* flex-direction: column; */
+  /* align-items: center; */
+  /* justify-content: center; */
+  /* margin-inline: auto; /* Same as justify-content: center; */
+  max-width: clamp(300px, 50%, 900px);
+
   animation: abt-fade-in;
   animation-duration: 2s;
   animation-iteration-count: 1;
 }
 
 .text h1 {
-  font-family: "EB Garamond", serif;
-  font-size: 5rem;
+  font-family: var(--ff-title);
+  font-size: clamp(2rem, 5vw, 5rem);
   font-weight: 400;
   letter-spacing: 2px;
 }
 
 .text h3 {
-  font-size: 2rem;
+  font-size: clamp(1rem, 2.5vw, 3rem);
   font-weight: 400;
 }
 
 .text p, figcaption, figcaption a {
-  font-size: 1.5rem;
+  font-size: clamp(.9rem, 2vw, 1.5rem);
+  text-wrap: pretty;
 }
 
 @keyframes abt-fade-in {
   0% { opacity: 0%; }
   100% { opacity: 100%; }
+}
+
+/* Specific settings */
+.wc-bgd-img {
+  background-image: url('../Images/friendly-cornerShort-min.png');
+  background-repeat: no-repeat;
+  background-size: cover;
+  height: 100%;
+}
+
+/* About us */
+.about-sub {
+  background-color: var(--clr-bgd-brown);
+  color: var(--clr-font-light);
 }
 
 /* Galery */
@@ -82,37 +80,35 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  
-  height: 100%;
-  width: 100%;
-}
-
-.cowork-text {
-  width: 45vw;
 }
 
 .photo-frame {
   display: inline-flex;
   justify-content: center;
-  column-gap: 50px;
+  column-gap: clamp(20px, 2vw, 50px);
   
-  width: 50%;
-  margin-top: 100px;
+  width: clamp(450px, 60vw, 920px);
+  margin-top: 40px;
+}
+
+@media screen and (max-width: 668px) {
+  .photo-frame {
+    margin-top: 15px;
+  }
 }
 
 figure .image {
-  height: 500px;
-  width: 500px;
+  width: clamp(150px, 40vw, 400px);
 }
 
 figcaption a {
-  color: rgb(172, 107, 105);
+  color: var(--clr-bgd-brown);
   font-weight: 600;
   text-decoration: none;
 }
 
 figcaption a:visited {
-  color: rgb(172, 107, 105);
+  color: var(--clr-bgd-brown);
 }
 
 /* Insta feed */
@@ -120,124 +116,22 @@ figcaption a:visited {
   display: flex;
   flex-direction: column;
   align-items: center;
-  width: 80% ;
-  height: 80vh;
+  width: clamp(350px, 65vw, 1000px);
+  height: clamp(480px, 65vw, 950px);
 }
 
 .instagram-embed {
   display: flex;
   flex-direction: column;
   align-items: center;
-  width: 60%;
+  width: 100%;
   height: 100%;
   overflow: hidden;
 }
 
 .instagram-embed iframe {
-  width: calc(100% + 32px);
+  overflow-y: hidden;
+  width: calc(100% + 34px);
   height: 100%;
   border: 0;
-
-}
-
-@media screen and (max-width: 1800px) {
-  .insta-sub {
-    height: 60vh;
-  }
-}
-
-@media screen and (max-width: 1690px) {
-  .text h1 {
-    font-size: 3.5rem;
-  }
-  
-  .text h3 {
-    font-size: 2rem;
-    font-weight: 400;
-  }
-  
-  .text p, figcaption, figcaption a {
-    font-size: 1.1rem;
-  }
-
-  .photo-frame {
-    column-gap: 50px;
-    
-    width: 50%;
-    margin-top: 100px;
-  }
-  
-  figure .image {
-    height: 350px;
-    width: 350px;
-  }
-
-  .insta-sub {
-    height: 80vh;
-  }
-}
-
-@media screen and (max-width: 980px) {
-  .section {
-    height: 20vh;
-  }
-
-  .sub {
-    height: 35vh;
-    width: 100%;
-    padding-bottom: 10px;
-  }
-
-  .text {
-    width: 90%;
-  }
-
-  .text h1 {
-    font-size: 2rem;
-    font-weight: 400;
-    letter-spacing: 0;
-  }
-  
-  .text h3 {
-    font-size: 1rem;
-    font-weight: 400;
-  }
-
-  .cowork-text {
-    width: 80vw;
-  }
-  
-  .photo-frame {
-    display: inline-flex;
-    justify-content: center;
-    column-gap: 20px;
-    
-    width: 90%;
-    margin-top: 50px;
-    overflow: hidden;
-  }
-  
-  figure .image {
-    height: 150px;
-    width: 150px;
-  }
-
-  .text p, figcaption, figcaption a {
-    font-size: .8rem;
-  }
-
-  .insta-sub {
-    width: 100% ;
-    height: 480px;
-  }
-  
-  .instagram-embed {
-    width: 90%;
-  }
-}
-
-@media screen and (max-width: 500px) {
-  .insta-sub{
-    height: 55vh;    
-  }
 }

@@ -1,6 +1,3 @@
-import butik1 from '../Images/Butik1.jpg';
-import butik2 from '../Images/Butik2.jpg';
-import butik3 from '../Images/Butik3.jpg';
 import './Butik.css';
 
 function Butik() {
@@ -11,7 +8,6 @@ function Butik() {
             <div className='section-3 section' id='butik'>
                 <div className='butik-bgd-img'></div>
             </div>
-            <div className="butik-cont">
                 <div className="butik-sub sub" >
                     <div className='butik-text text'>
                         <h1>Butik</h1><br />
@@ -27,12 +23,16 @@ function Butik() {
                         <p>Varmt välkommen in.</p>
                     </div>
                 </div>
-                <div className='butik-insta' >
-                    <img src={butik1} alt="butik picture" />
-                    <img src={butik2} alt="butik picture" />
-                    <img src={butik3} alt="butik picture" />
+            <dic className="butik-cont">
+                <div className="insta-sub">
+                    <div className="instagram-embed">
+                        <iframe async
+                            src="https://www.instagram.com/tinnadesign/embed"
+                            allowtransparency="true"
+                        ></iframe>
+                    </div>
                 </div>
-            </div> 
+            </dic>
         </div>
         </>
     );

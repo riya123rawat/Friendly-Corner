@@ -13,13 +13,11 @@ function Office() {
       <div className="wrapper">
 
         {/* Background image */}
-
         <div className="section-1 section" id="office">
           <div className="office-bgd-img"></div>
         </div>
 
         {/* Office sub text */}
-
         <div className="office-sub sub">
           <div className="office-text text">
             <h1>Kontoret</h1>
@@ -52,8 +50,7 @@ function Office() {
         </div>
 
         {/* Office photo galery */}
-
-        <div className='gry-cont sub'>
+        <div className="gry-cont">
             <div className="gry-title text">
                 <h1>Dina Kollegor</h1>
             </div>

@@ -1,9 +1,6 @@
 import "./Home.css";
 import Asa from "../Images/Team/Asa Andreasson.jpg";
 import Tinna from "../Images/Team/Tinna Ahlander.jpg";
-// import pic1 from "../Images/serial1.jpg";
-// import pic2 from "../Images/serial2.jpg";
-// import pic3 from "../Images/serial3.jpg";
 
 function Home() {
   return (
@@ -11,13 +8,11 @@ function Home() {
       <div className="wrapper">
         
         {/* Background image */}
-
         <div className="section-0 section">
           <div className="wc-bgd-img"></div>
         </div>
 
         {/* About us sub text */}
-
         <div className="about-sub sub">
           <div className="about-text text">
             <h1>Vi är Friendly corner</h1>
@@ -42,7 +37,6 @@ function Home() {
         </div>
 
         {/* Galery */}
-
         <div className="cowork-cont">
           <div className="photo-frame">
             <figure>

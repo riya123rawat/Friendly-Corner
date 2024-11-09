@@ -42,18 +42,19 @@ function Header( { onLoginClick } ) {
           </svg>
           </label>
 
-          <HashLink onClick={closeSidebar} className="_link" smooth to="/#top">Hem</HashLink>
-          <HashLink onClick={closeSidebar} className="_link" smooth to="/office/#top">Kontor</HashLink>
-          <HashLink onClick={closeSidebar} className="_link" smooth to="/meetingroom/#top">Mötesrom</HashLink>
-          <HashLink onClick={closeSidebar} className="_link" smooth to="/butik/#top" >Butik</HashLink>
-          <Link onClick={closeSidebar} className="_link" to="/contactus" >Contact</Link>
-          
-          <Link onClick={(e) => { e.preventDefault(); handleLoginClick(); closeSidebar() }} className="svg-cont _link" to="#">
-            <svg width="30" height="75" viewBox="-0.5 -5 33 1" xmlns="http://www.w3.org/2000/svg">
-              <path d="M16.5 0a9.5 9.5 0 0 1 4.581 17.825C27.427 19.947 32 25.94 32 33h-2c0-7.732-6.268-14-14-14S2 25.268 
-              2 33H0c0-7.3 4.888-13.458 11.57-15.379A9.5 9.5 0 0 1 16.5 0m0 2a7.5 7.5 0 1 0 0 15 7.5 7.5 0 0 0 0-15"/>
-            </svg>
-          </Link>
+            <HashLink onClick={closeSidebar} className="_link" smooth to="/#top">Hem</HashLink>
+            <HashLink onClick={closeSidebar} className="_link" smooth to="/office/#top">Kontor</HashLink>
+            <HashLink onClick={closeSidebar} className="_link" smooth to="/meetingroom/#top">Mötesrom</HashLink>
+            <HashLink onClick={closeSidebar} className="_link" smooth to="/butik/#top" >Butik</HashLink>
+            <Link onClick={closeSidebar} className="_link" to="/contactus" >Contact</Link>
+            
+            <Link onClick={(e) => { e.preventDefault(); handleLoginClick(); closeSidebar() }} className="svg-cont _link" to="#">
+              <svg width="30" height="75" viewBox="-0.5 -5 33 1" xmlns="http://www.w3.org/2000/svg">
+                <path d="M16.5 0a9.5 9.5 0 0 1 4.581 17.825C27.427 19.947 32 25.94 32 33h-2c0-7.732-6.268-14-14-14S2 25.268 
+                2 33H0c0-7.3 4.888-13.458 11.57-15.379A9.5 9.5 0 0 1 16.5 0m0 2a7.5 7.5 0 1 0 0 15 7.5 7.5 0 0 0 0-15"/>
+              </svg>
+            </Link>
+
         </div>
       </nav>
     </header>
