@@ -20,7 +20,8 @@ function Office() {
         <div className="section-1 section" id="office">
           {backgrounds.background2 && (
             <>
-              <div className="office-bgd-img" style={{ backgroundImage: `url(${backgrounds.background2})`, }} />
+              <div  className="wc-bgd-img" 
+                style={{ backgroundImage: `url(${backgrounds.background2}?${new Date().getTime()})` }} />
             </>
           )}
         </div>

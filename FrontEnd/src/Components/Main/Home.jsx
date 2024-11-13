@@ -21,7 +21,9 @@ function Home() {
         <div className="section-0 section">
           {backgrounds.background1 && (
             <>
-              <div className="wc-bgd-img" style={{ backgroundImage: `url(${backgrounds.background1})`, }} />
+            {console.log('backgrounds.background1:', backgrounds.background1)}
+            <div  className="wc-bgd-img" 
+                  style={{ backgroundImage: `url(${backgrounds.background1}?${new Date().getTime()})` }} />
             </>
           )}
         </div>

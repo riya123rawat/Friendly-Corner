@@ -16,7 +16,7 @@ function MeetingRoom() {
             <div className='section-2' id='meetingRoom'>
                 {backgrounds.background3 && (
                     <>
-                        <div className="meetingRoom-bgd-img" style={{ backgroundImage: `url(${backgrounds.background3})`, }} />
+                        <div className="meetingRoom-bgd-img" style={{ backgroundImage: `url(${backgrounds.background3}?${new Date().getTime()})`, }} />
                     </>
                 )}
             </div>
@@ -45,7 +45,7 @@ function MeetingRoom() {
             <div className="section-2-2">
                 {backgrounds.background4 && (
                     <>
-                        <div className="meetRoom-post-img" style={{ backgroundImage: `url(${backgrounds.background4})`, }} />
+                        <div className="meetRoom-post-img" style={{ backgroundImage: `url(${backgrounds.background4}?${new Date().getTime()})`, }} />
                     </>
                 )}
 

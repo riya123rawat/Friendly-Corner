@@ -53,21 +53,28 @@ input[type="file"] {
     padding: 10px 20px;
     border-radius: 5px;
     background-color: var(--clr-bgd-blue);
-    color: #fff;
+    color: var(--clr-font-light);
     font-size: 16px;
     cursor: pointer;
     transition: background-color 0.3s ease;
 }
 
 .file-label:hover {
-    background-color: #0056b3;
+    background-color: #2d73bd;
+}
+
+.file-label.disabled { color: grey;
+    display: none;
+    /* background-color: #6c757d; */
+    /* cursor: not-allowed;  */
 }
 
 .bgd-change-btn:hover {
-    background-color: #218838;
+    background-color: #3ca753;
 }
 
 .bgd-change-btn:disabled {
-    background-color: #6c757d;
-    cursor: not-allowed;
+    display: none;
+    /* background-color: #6c757d; */
+    /* cursor: not-allowed; */
 }

@@ -13,7 +13,7 @@ function Butik() {
             <div className='section-3 section' id='butik'>
                 {backgrounds.background5 && (
                     <>
-                        <div className="meetingRoom-bgd-img" style={{ backgroundImage: `url(${backgrounds.background5})`, }} />
+                        <div className="meetingRoom-bgd-img" style={{ backgroundImage: `url(${backgrounds.background5}?${new Date().getTime()})`, }} />
                     </>
                 )}
             </div>

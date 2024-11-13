@@ -7,7 +7,7 @@ public class BackgroundImageController : ControllerBase
 {
     private readonly AppDbContext _context;
 
-    public BackgroundImageController(AppDbContext context, ILogger<BackgroundImageController> logger)
+    public BackgroundImageController(AppDbContext context)
     {
         _context = context;
     }
@@ -30,7 +30,8 @@ public class BackgroundImageController : ControllerBase
         Directory.CreateDirectory(folderPath); // Ensure directory exists
 
         // Create a consistent filename based on background type
-        var fileName = $"{backgroundType}.png";
+        var extension = Path.GetExtension(image.FileName); // Get the file extension
+        var fileName = $"{backgroundType}{extension}"; // Create a new file name with the original extension
         var filePath = Path.Combine(folderPath, fileName);
 
         // Check if the background type already exists in the database
@@ -39,18 +40,19 @@ public class BackgroundImageController : ControllerBase
 
         if (existingBackground != null)
         {
+            // Get the full path of the existing file from the database
+            var existingFilePath = Path.Combine(folderPath, Path.GetFileName(existingBackground.ImagePath));
+
             // Check if the old file exists and delete it
-            if (System.IO.File.Exists(filePath))
+            if (System.IO.File.Exists(existingFilePath))
             {
                 try
                 {
-                    System.IO.File.Delete(filePath);
-                    Console.WriteLine($"Deleted old file: {filePath}");
+                    System.IO.File.Delete(existingFilePath);
                 }
                 catch (Exception ex)
                 {
-                    Console.WriteLine($"Error deleting old file: {ex.Message}");
-                    return StatusCode(500, "Error deleting old file.");
+                    return StatusCode(500, "Error deleting old file: " + ex.Message);
                 }
             }
 
@@ -94,13 +96,11 @@ public class BackgroundImageController : ControllerBase
         try
         {
             var images = _context.BackgroundImages.Select(img => new { img.BackgroundType, img.ImagePath }).ToList();
-
-            if (images == null || !images.Any()) { return NotFound("No images found."); }
+            if (!images.Any()) return NotFound("No images found.");
             return Ok(images);
         }
         catch (Exception)
         {
-            //_logger.LogError(ex, "Error occurred while fetching saved images.");
             return StatusCode(500, "Internal server error");
         }
     }
@@ -130,7 +130,6 @@ public class BackgroundImageController : ControllerBase
                 backgroundImage.ImagePath = model.ImagePath;
                 backgroundImage.UpdatedAt = DateTime.Now;
                 await _context.SaveChangesAsync();
-
                 return Ok(new { success = true });
             }
             else
