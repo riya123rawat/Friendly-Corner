@@ -7,11 +7,12 @@ public class AppDbContext : DbContext
 
     public DbSet<User> Users { get; set; }
     public DbSet<Room> Rooms { get; set; }
-     public DbSet<Member> Members { get; set; }
-        public DbSet<Booking> Bookings { get; set; }
-         protected override void OnModelCreating(ModelBuilder modelBuilder)
-        {
-            modelBuilder.Entity<Booking>()
-                .HasKey(b => b.BookingId);
-        }
+    public DbSet<Member> Members { get; set; }
+    public DbSet<Booking> Bookings { get; set; }
+    public DbSet<BackgroundImage> BackgroundImages { get; set; }
+    protected override void OnModelCreating(ModelBuilder modelBuilder)
+    {
+        modelBuilder.Entity<Booking>()
+        .HasKey(b => b.BookingId);
+    }
 }

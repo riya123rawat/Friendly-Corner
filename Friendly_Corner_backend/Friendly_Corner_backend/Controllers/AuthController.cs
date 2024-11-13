@@ -9,7 +9,7 @@ using System.Text;
 namespace Friendly_Corner_backend.Controllers
 {
     [ApiController]
-    [Route("api/auth")]
+    [Route("api/[controller]")]
     public class AuthController : ControllerBase
     {
         private readonly AppDbContext _context;
@@ -60,7 +60,7 @@ namespace Friendly_Corner_backend.Controllers
 
     public class LoginDto
     {
-        public string Username { get; set; }
-        public string Password { get; set; }
+        public required string Username { get; set; }
+        public required string Password { get; set; }
     }
 }
