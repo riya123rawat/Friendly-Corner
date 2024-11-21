@@ -76,7 +76,6 @@ function Office() {
                 <Member image={Asa} alt="Åsa" name="Åsa Andreasson" url="https://www.kreativakvadrat.com/" address="Kreativakvadrat.com" />
                 <Member image={Tinna} alt="Tinna" name="Tinna Ahlander" url="https://tinnadesign.se/" address="Tinnadesign.se" />
 
-
             </div>
 
         </div>

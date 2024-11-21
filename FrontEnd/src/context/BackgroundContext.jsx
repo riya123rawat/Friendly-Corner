@@ -3,17 +3,19 @@ import axios from 'axios';
 
 export const BackgroundContext = createContext();
 
-export const BackgroundProvider = ({ children }) => {
+export function BackgroundProvider({ children }) {
   const [backgrounds, setBackgrounds] = useState({});
 
 //   console.log("BackgroundProvider before uE: ",backgrounds.background1);
 
     const baseURL = 'https://localhost:7177';
+    const [loading, setLoading] = useState(true);
 
   useEffect(() => {
     const fetchSavedImages = async () => {
       // console.log('fetchSavedImages called');
       try {
+        setLoading(true);
         const response = await axios.get('/api/backgroundimage/getSavedImages');
         // console.log('Full API response:', response.data);
   
@@ -56,12 +58,20 @@ export const BackgroundProvider = ({ children }) => {
             background3: '/Images/bgd-meeting.jpg',
             background4: '/Images/bgd-meeting-2.jpg',
             background5: '/Images/bgd-butik.jpg'
-        }));
+        }
+      ));
+      }
+      finally {
+        setLoading(false);
       }
     };
     fetchSavedImages();
   }, []);
-        
+
+  if (loading) {
+    return <div>Loading...</div>;
+  }
+
 //   console.log("BackgroundProvider after uE: ",backgrounds.background1);
 
   return (

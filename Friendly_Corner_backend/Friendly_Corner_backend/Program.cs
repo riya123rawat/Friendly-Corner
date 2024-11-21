@@ -16,7 +16,8 @@ builder.Services.AddCors(options =>
 });
 
 // Get the JWT key from configuration
-var jwtKey = builder.Configuration["JwtSettings:SigningKey"];
+var jwtKey = builder.Configuration["JwtSettings:SigningKey"]
+    ?? throw new ArgumentNullException("JwtSettings:SigningKey", "JWT Signing Key not found in configuration.");
 var keyBytes = Encoding.ASCII.GetBytes(jwtKey);
 
 // Configure MySQL Database

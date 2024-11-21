@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "qoaxVz6mxbsZUFSrzxRFvyGbPI1lBqTLW3JdoI5/C6Y=",
+  "Hash": "1OT2LWSnO0zrtZ7AKBIGULKDKbKLySBI+c8CSb8WmnU=",
   "Source": "Friendly_Corner_backend",
   "BasePath": "_content/Friendly_Corner_backend",
   "Mode": "Default",
@@ -17,12 +17,12 @@
   ],
   "Assets": [
     {
-      "Identity": "C:\\CODE\\Internship\\Friendly Corner\\Friendly_Corner_backend\\Friendly_Corner_backend\\wwwroot\\img-bgd\\background1.jpg",
+      "Identity": "C:\\CODE\\Internship\\Friendly Corner\\Friendly_Corner_backend\\Friendly_Corner_backend\\wwwroot\\img-bgd\\background1.png",
       "SourceId": "Friendly_Corner_backend",
       "SourceType": "Discovered",
       "ContentRoot": "C:\\CODE\\Internship\\Friendly Corner\\Friendly_Corner_backend\\Friendly_Corner_backend\\wwwroot\\",
       "BasePath": "_content/Friendly_Corner_backend",
-      "RelativePath": "img-bgd/background1.jpg",
+      "RelativePath": "img-bgd/background1.png",
       "AssetKind": "All",
       "AssetMode": "All",
       "AssetRole": "Primary",
@@ -33,7 +33,7 @@
       "AssetTraitValue": "",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot\\img-bgd\\background1.jpg"
+      "OriginalItemSpec": "wwwroot\\img-bgd\\background1.png"
     },
     {
       "Identity": "C:\\CODE\\Internship\\Friendly Corner\\Friendly_Corner_backend\\Friendly_Corner_backend\\wwwroot\\img-bgd\\background2.jpg",

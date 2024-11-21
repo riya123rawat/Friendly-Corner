@@ -46,13 +46,21 @@
 }
 
 .text h3 {
-  font-size: clamp(1rem, 2.5vw, 3rem);
+  font-family: var(--ff-text);
+  font-size: clamp(1rem, 2vw, 2.5rem);
   font-weight: 400;
 }
 
-.text p, figcaption, figcaption a {
+.text p {
+  font-family: var(--ff-text);
   font-size: clamp(.9rem, 2vw, 1.5rem);
   text-wrap: pretty;
+}
+
+figcaption, figcaption a {
+  font-family: var(--ff-text);
+  font-size: clamp(.8rem, 1.2vw, 1.3rem);
+  margin-top: 10px;
 }
 
 @keyframes abt-fade-in {
