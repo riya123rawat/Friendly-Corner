@@ -46,18 +46,10 @@ function BackgroundChanger() {
   };
 
   const updateOrPostBackground = async (backgroundType, newImageFile) => {
-    // console.log("backgroundType: ", backgroundType);
-    // console.log("newImageFile: ", newImageFile);
     try {
       const formData = new FormData();
       formData.append('image', newImageFile);
       formData.append('backgroundType', backgroundType);
-  
-      // Debugging: Log FormData content
-      // console.log('FormData content:', formData);
-      // for (let pair of formData.entries()) {
-      //   console.log(pair[0] + ': ' + pair[1]);
-      // }
   
       const response = await axios.post('/api/backgroundimage/uploadBackground', formData, {
         headers: {
@@ -101,21 +93,22 @@ function BackgroundChanger() {
   return (
     <div className="bgd-change-cont">
       <select className="bgd-select" onChange={handleSelectChange}>
-        <option value="">Choose a picture</option>
-        <option value="background1">Background 1</option>
-        <option value="background2">Background 2</option>
-        <option value="background3">Background 3</option>
-        <option value="background4">Background 4</option>
-        <option value="background5">Background 5</option>
+        <option value="">Choose a background</option>
+        <option value="background1">Home page main</option>
+        <option value="background2">Office page main</option>
+        <option value="background3">Meeting room main</option>
+        <option value="background4">Meeting room secondary</option>
+        <option value="background5">Butik page main</option>
       </select>
       {imageFile && (
         <div className="bg-preview">
           <h3>Preview:</h3>
           <Cropper
+            className='cropper'
             src={imageFile}
-            style={{ height: 200, width: '100%' }}
+            style={{ height: '100%', width: '100%' }}
             aspectRatio={16 / 9}
-            guides={false}
+            guides={true}
             ref={cropperRef}
             viewMode={1}
             cropBoxResizable={false}

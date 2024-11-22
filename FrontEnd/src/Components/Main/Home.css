@@ -27,10 +27,6 @@
 .text {
   font-family: var(--ff-text);
   display: block;
-  /* flex-direction: column; */
-  /* align-items: center; */
-  /* justify-content: center; */
-  /* margin-inline: auto; /* Same as justify-content: center; */
   max-width: clamp(300px, 50%, 900px);
 
   animation: abt-fade-in;

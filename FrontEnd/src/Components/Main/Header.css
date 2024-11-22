@@ -6,7 +6,7 @@ header {
 }
 
 nav{
-  font-family: 'DM Sans', serif;
+  font-family: var(--ff-text);
   height: 100px;
   background-color: var(--clr-bgd-header);
   display: flex;

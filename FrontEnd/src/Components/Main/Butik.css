@@ -18,3 +18,18 @@
     background-color: var(--clr-bgd-green);
     color: var(--clr-font-light);
 }
+
+.butik-cont {
+    display: inline-flex;
+
+
+    /* align-items: center; */
+    /* justify-content: center; */
+    height: 45vh;
+    margin-bottom: 0;
+}
+
+.butik-cont img {
+    height: 300px;
+    width: 300px;
+}
