@@ -7,7 +7,7 @@
     padding: 20px;
     background-color: #f9f9f9;
     border-radius: 10px;
-    width: clamp(300px, 25%, 800px);
+    width: clamp(150px, 50%, 800px);
     margin: 0 auto;
 }
 
@@ -15,15 +15,15 @@
     padding: 10px;
     border-radius: 5px;
     border: 1px solid #ccc;
-    width: 80%;
-    font-size: clamp(0.85rem, 1.2vw, 1.3rem);
+    width: 100%;
+    font-size: clamp(0.75rem, 1.2vw, 1.3rem);
     cursor: pointer;
     transition: border-color 0.3s ease;
 }
 
 .bg-preview {
     font-family: var(--ff-text);
-    max-width: clamp(300px, 100%, 800px);
+    max-width: clamp(100px, 100%, 800px);
 
     display: flex;
     flex-direction: column;
@@ -38,9 +38,10 @@
     font-weight: 400;
 }
 
-.cropper {
-    height: 400; width: 600;
-}
+/* .cropper {
+    height: clamp(150px, 100%, 300px);
+    width: clamp(150px, 100%, 300px);
+} */
 
 .bgd-change-btn {
     padding: 10px 20px;

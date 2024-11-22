@@ -22,11 +22,10 @@
 
 .logout-btn:hover {
     cursor: pointer;
-
 }
 
 .adm-sidebar {
-    width: clamp(110px, 10%, 150px);
+    width: clamp(90px, 10%, 150px);
     height: 90vh;
     background-color: var(--clr-bgd-blue);
     display: flex;
@@ -45,7 +44,7 @@
     cursor: pointer;
     border-radius: 4px;
     transition: background-color 0.5s;
-    font-size: clamp(1rem, 1.2vw, 1.3rem);
+    font-size: clamp(0.8rem, 1.2vw, 1.3rem);
     z-index: 2;
 }
 

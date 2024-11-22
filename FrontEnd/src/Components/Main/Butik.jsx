@@ -36,9 +36,11 @@ function Butik() {
                 </div>
             </div>
             <div className="butik-cont">
-                <img src={butik1} alt="butik picture" />
-                <img src={butik2} alt="butik picture" />
-                <img src={butik3} alt="butik picture" />
+                <div className="butik-pic">
+                    <img src={butik1} alt="butik picture" />
+                    <img src={butik2} alt="butik picture" />
+                    <img src={butik3} alt="butik picture" />
+                </div>
             </div>
         </div>
         </>

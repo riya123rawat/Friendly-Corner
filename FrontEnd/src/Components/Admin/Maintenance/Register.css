@@ -1,9 +1,9 @@
 .wrap {
     display: flex;
     flex-direction: column;
-    margin-top: 20px;
+    margin: 20px 50px 0 0;
     background: linear-gradient(to right, #ffffff 30%,  #345f79);
-    border: solid #345f79 1px;
+    border: 1px solid #ccc;
     border-radius: 1cap;
     color: white;
     font-family: var(--ff-text);
@@ -19,7 +19,7 @@
 .wrap form {
     display: flex;
     flex-direction: column;
-    width: clamp(150px, 15%, 300px);
+    width: clamp(150px, 80%, 300px);
     padding: 10px;
     border-radius: 10px;
     /* background: rgba(255, 255, 255, 0.48); */

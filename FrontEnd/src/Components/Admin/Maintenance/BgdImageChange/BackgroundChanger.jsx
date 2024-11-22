@@ -106,7 +106,7 @@ function BackgroundChanger() {
           <Cropper
             className='cropper'
             src={imageFile}
-            style={{ height: '100%', width: '100%' }}
+            style={{ height: '110', width: '110' }}
             aspectRatio={16 / 9}
             guides={true}
             ref={cropperRef}

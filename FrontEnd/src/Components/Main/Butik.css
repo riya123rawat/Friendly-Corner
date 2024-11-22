@@ -20,16 +20,26 @@
 }
 
 .butik-cont {
+    background-color: white;
     display: inline-flex;
-
-
-    /* align-items: center; */
-    /* justify-content: center; */
-    height: 45vh;
+    height: clamp(110px, 25vw, 500px);
+    /* width: clamp(300px, 50vw, 60%); */
+    /* width: 100%; */
     margin-bottom: 0;
 }
 
-.butik-cont img {
-    height: 300px;
-    width: 300px;
+.butik-pic {
+    /* background-color: red; */
+    display: inline-flex;
+    justify-content: space-around;
+    align-items: center;
+    height: 90%;
+    width: clamp(300px, 80vw, 2000px);
+    justify-content: space-around;
+    
+}
+
+.butik-pic img {
+    height: clamp(90px, 22vw, 450px);
+    width: clamp(90px, 22vw, 450px);
 }

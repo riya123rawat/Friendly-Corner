@@ -13,7 +13,7 @@ function MeetingRoom() {
         <div className="wrapper">
 
             {/* Background image */}
-            <div className='section-2' id='meetingRoom'>
+            <div className='section-2 section' id='meetingRoom'>
                 {backgrounds.background3 && (
                     <>
                         <div className="meetingRoom-bgd-img" style={{ backgroundImage: `url(${backgrounds.background3}?${new Date().getTime()})`, }} />
