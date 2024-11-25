@@ -97,7 +97,7 @@
 }
 
 /* Submit button */
-.button {
+.submit-btn {
     background-color: var(--clr-bgd-blue);
     color: var(--clr-font-light);
     padding: 8px 20px;
@@ -109,7 +109,7 @@
     text-align: center;
 }
 
-.button:hover {
+.submit-btn:hover {
     background-color: var(--clr-btn-hover);
     cursor: pointer;
 }

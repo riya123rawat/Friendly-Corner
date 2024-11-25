@@ -159,7 +159,7 @@ const LoginModal = forwardRef((props, ref) => {
                             </label>
                         </div>
 
-                        <button className="button">Submit</button>
+                        <button className="submit-btn">Submit</button>
                     </form>
                 </div>
 

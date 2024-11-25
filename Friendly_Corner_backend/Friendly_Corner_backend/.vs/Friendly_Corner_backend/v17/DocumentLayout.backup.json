@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "WorkspaceRootPath": "C:\\CODE\\TEST\\Friendly_Corner_backend\\Friendly_Corner_backend\\",
+  "WorkspaceRootPath": "C:\\CODE\\Internship\\Friendly Corner\\Friendly_Corner_backend\\Friendly_Corner_backend\\",
   "Documents": [],
   "DocumentGroupContainers": [
     {
@@ -22,6 +22,10 @@
             {
               "$type": "Bookmark",
               "Name": "ST:0:0:{1c4feeaa-4718-4aa9-859d-94ce25d182ba}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{aa2115a1-9712-457b-9047-dbb71ca2cdd2}"
             }
           ]
         }

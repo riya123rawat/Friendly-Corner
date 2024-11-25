@@ -18,7 +18,7 @@ namespace Friendly_Corner_backend.Controllers
         public AuthController(AppDbContext context, IConfiguration configuration)
         {
             _context = context;
-            _keyBytes = Encoding.ASCII.GetBytes(configuration["JwtSettings:SigningKey"]);
+            _keyBytes = Encoding.ASCII.GetBytes(s: configuration["JwtSettings:SigningKey"]);
         }
 
         [HttpPost("register")]
@@ -29,6 +29,9 @@ namespace Friendly_Corner_backend.Controllers
 
             // Hash the password before saving
             user.Password = BCrypt.Net.BCrypt.HashPassword(user.Password);
+            user.RegistrationDate = DateTime.UtcNow;
+            user.UpdatedDate = DateTime.UtcNow;
+
             _context.Users.Add(user);
             await _context.SaveChangesAsync();
             return Ok("User registered successfully");
@@ -55,6 +58,97 @@ namespace Friendly_Corner_backend.Controllers
 
             var token = tokenHandler.CreateToken(tokenDescriptor);
             return Ok(new { Token = tokenHandler.WriteToken(token) });
+        }
+
+        [HttpGet("users")]
+        public async Task<IActionResult> GetUsers()
+        {
+            try
+            {
+                var users = await _context.Users
+                    .Select(u => new
+                    {
+                        u.Id,
+                        Username = u.Username ?? string.Empty,
+                        u.Password,
+                        Email = u.Email ?? string.Empty,
+                        Name = u.Name ?? string.Empty,
+                        PictureUrl = u.PictureUrl ?? string.Empty,
+                        WebUrl = u.WebUrl ?? string.Empty,
+                        Description = u.Description ?? string.Empty
+                    })
+                    .ToListAsync();
+                return Ok(users);
+            }
+            catch (Exception ex)
+            {
+                // Log the exception details for troubleshooting
+                Console.WriteLine($"Error fetching users: {ex.Message}");
+                return StatusCode(500, "Internal server error");
+            }
+        }
+
+        [HttpPut("update/{id}")]
+        public async Task<IActionResult> UpdateUser(int id, [FromBody] User updatedUser)
+        {
+            try
+            {
+                var user = await _context.Users.SingleOrDefaultAsync(u => u.Id == id);
+                if (user == null)
+                {
+                    return NotFound("User not found");
+                }
+
+                // Update user details
+                user.Username = updatedUser.Username;
+                user.Email = updatedUser.Email;
+                user.Name = updatedUser.Name;
+                user.PictureUrl = updatedUser.PictureUrl;
+                user.WebUrl = updatedUser.WebUrl;
+                user.Description = updatedUser.Description;
+
+                // Update password if provided
+                if (!string.IsNullOrEmpty(updatedUser.Password))
+                {
+                    user.Password = BCrypt.Net.BCrypt.HashPassword(updatedUser.Password);
+                }
+
+                user.UpdatedDate = DateTime.UtcNow;
+
+                _context.Users.Update(user);
+                await _context.SaveChangesAsync();
+                return Ok("User updated successfully");
+            }
+            catch (Exception ex)
+            {
+                // Log the exception details for troubleshooting
+                Console.WriteLine($"Error updating user: {ex.Message}");
+                return StatusCode(500, "Internal server error");
+            }
+        }
+
+
+        [HttpDelete("delete/{id}")]
+        public async Task<IActionResult> DeleteUser(int id)
+        {
+            try
+            {
+                var user = await _context.Users.SingleOrDefaultAsync(u => u.Id == id);
+                if (user == null)
+                {
+                    return NotFound("User not found");
+                }
+
+                _context.Users.Remove(user);
+                await _context.SaveChangesAsync();
+                return Ok("User deleted successfully");
+            }
+            catch (Exception ex)
+            {
+                // Log the exception details for troubleshooting
+                Console.WriteLine($"Error deleting user: {ex.Message}");
+                return StatusCode(500, "Internal server error");
+            }
         }
     }
 

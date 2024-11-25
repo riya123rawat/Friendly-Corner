@@ -1,0 +1,115 @@
+.user-list {
+    margin: 5px 20px;
+    width: 99%;
+    max-width: 2000px; /* Ensures the table doesn't exceed 80% of the viewport width */
+    border-collapse: collapse; /* The adjacent cells has only one line of border */
+    color: #333;
+}
+
+@media screen and (width < 1280px) {
+    .user-list {
+        display: none;
+    }
+}
+
+.user-list h2 {
+    /* text-align: center; */
+    margin-bottom: 10px;
+    font-size: 1.2rem;
+    color: #444;
+}
+
+.user-tbl {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 20px;
+    background-color: #fff;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    table-layout: fixed; /* Ensures table width is managed better */
+}
+
+.user-tbl thead {
+    position: sticky;
+    top: 0;
+    background-color: #f4f4f4;
+    width: calc(100% - 12px);
+}
+
+.user-tbl th, .user-bdy td {
+    padding: 12px;
+    border: 1px solid #ddd;
+    text-align: left;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis; /* Ellipsis (...) for overflowed text */
+}
+
+.user-tbl th {
+    background-color: #f4f4f4;
+    font-weight: bold;
+}
+
+.user-bdy td {
+    background-color: #f9fafb;
+}
+
+.user-bdy {
+    display: block;
+    height: auto;
+    max-height: 315px;
+    overflow-y: auto;
+    overflow-x: hidden;
+    scrollbar-width: thin; /* For Firefox, ensure scrollbar is thin */
+}
+
+/* For Chrome, Safari, and Opera */
+.user-bdy::-webkit-scrollbar {
+    width: 12px; /* For vertical scrollbar in Chrome, Safari, and Opera */
+}
+
+.user-tbl tr, .user-bdy tr {
+    display: table;
+    width: 100%;
+    table-layout: fixed; /* Ensures the columns are managed better */
+}
+
+.sticky-column {
+    position: sticky;
+    background-color: inherit; /* Keeps the column background consistent */
+    z-index: 1; /* Ensures the column stays on top of other content */
+}
+
+.user-btn {
+    width: 40px;
+    height: 28px;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.edit {
+    background-color: var(--clr-bgd-blue);
+}
+
+.edit:hover {
+    background-color: blue;
+}
+
+.delete {
+    background-color: #fd6d6d;
+}
+
+.delete:hover {
+    background-color: #ff0000;
+}
+
+.editing {
+    height: auto; /* Ensure rows can expand when in edit mode */
+}
+
+.input-field {
+    width: 100%;
+    box-sizing: border-box;
+}

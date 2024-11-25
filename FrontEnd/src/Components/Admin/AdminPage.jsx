@@ -17,12 +17,12 @@ function AdminPage() {
 
   return (
     <div className="admin-cont">
-        <div className="logout-cont">
-            <button className="logout-btn" onClick={handleLogout}>Logout</button>
-        </div>
+      <div className="logout-cont">
+        <button className="logout-btn" onClick={handleLogout}>Logout</button>
+      </div>
             <Sidebar setSelectedComponent={setSelectedComponent} />
             <MainPanel selectedComponent={selectedComponent} />
-        </div>
+    </div>
   );
 }
 

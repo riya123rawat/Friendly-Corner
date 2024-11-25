@@ -22,7 +22,7 @@ function MainPanel({ selectedComponent }) {
     };
 
     return (
-        <div className="adm-panel">
+        <div className="adm-panel text">
             {renderComponent()}
         </div>
     );

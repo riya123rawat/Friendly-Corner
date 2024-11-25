@@ -28,7 +28,7 @@
   font-family: var(--ff-text);
   display: block;
   max-width: clamp(300px, 50%, 900px);
-
+  
   animation: abt-fade-in;
   animation-duration: 2s;
   animation-iteration-count: 1;

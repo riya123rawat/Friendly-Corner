@@ -7,8 +7,8 @@
     padding: 20px;
     background-color: #f9f9f9;
     border-radius: 10px;
-    width: clamp(150px, 50%, 800px);
-    margin: 0 auto;
+    width: clamp(150px, 55%, 800px);
+    /* margin: 0 0; */
 }
 
 .bgd-select {
@@ -16,7 +16,7 @@
     border-radius: 5px;
     border: 1px solid #ccc;
     width: 100%;
-    font-size: clamp(0.75rem, 1.2vw, 1.3rem);
+    font-size: clamp(0.75rem, 1.2vw, 1.1rem);
     cursor: pointer;
     transition: border-color 0.3s ease;
 }
@@ -29,7 +29,7 @@
     flex-direction: column;
     align-items: center;
     gap: 10px;
-    width: 100%;
+    width: 90%;
 }
 
 .bg-preview h3 {
@@ -38,10 +38,10 @@
     font-weight: 400;
 }
 
-/* .cropper {
+.cropper {
     height: clamp(150px, 100%, 300px);
     width: clamp(150px, 100%, 300px);
-} */
+}
 
 .bgd-change-btn {
     padding: 10px 20px;
@@ -79,8 +79,6 @@ input[type="file"] {
 
 .file-label.disabled { color: grey;
     display: none;
-    /* background-color: #6c757d; */
-    /* cursor: not-allowed;  */
 }
 
 .bgd-change-btn:hover {
@@ -89,6 +87,4 @@ input[type="file"] {
 
 .bgd-change-btn:disabled {
     display: none;
-    /* background-color: #6c757d; */
-    /* cursor: not-allowed; */
 }
