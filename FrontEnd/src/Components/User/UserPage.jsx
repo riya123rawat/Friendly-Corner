@@ -12,11 +12,16 @@ function UserPage() {
         
         navigate('/');
     };
+    const handleBookRoomClick = () => {
+        // Navigate to the MeetingRoomCalendarPage
+        navigate('/meetingroomcalendar');
+      };
 
     return (
         <div>
             <h1>User Page</h1>
             <p>Welcome, User! You have access to this page.</p>
+            <button onClick={handleBookRoomClick}>Book a Room</button> 
             <button onClick={handleLogout}>Logout</button>
         </div>
     );
