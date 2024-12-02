@@ -6,6 +6,7 @@
   justify-content: center;
   text-align: center;
   overflow: hidden;
+  /* min-height: 100vh; */
 }
 
 /* Background picture container */
@@ -43,7 +44,7 @@
 
 .text h3 {
   font-family: var(--ff-text);
-  font-size: clamp(1rem, 2vw, 2.5rem);
+  font-size: clamp(1rem, 2vw, 1.8rem);
   font-weight: 400;
 }
 

@@ -1,23 +1,22 @@
 import React from 'react';
-
-import Maintenance from './Maintenance/Maintenance';
+import BackgroundChanger from './Maintenance/BgdImageChange/BackgroundChanger';
 import Prices from './Maintenance/Prices';
-import Colleagues from './Maintenance/Colleagues';
 import Register from './Maintenance/Register';
+import UserList from './Maintenance/UserList';
 
 function MainPanel({ selectedComponent }) {
     const renderComponent = () => {
         switch (selectedComponent) {
-            case 'Maintenance':
-                return <Maintenance />;
+            case 'BackgroundChanger':
+                return <BackgroundChanger />;
             case 'Prices':
                 return <Prices />;
-            case 'Colleagues':
-                return <Colleagues />;
             case 'Register':
                 return <Register />;
+            case 'Colleagues':
+                return <UserList />;
             default:
-                return <Maintenance />;
+                return <BackgroundChanger />;
         }
     };
 

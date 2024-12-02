@@ -65,6 +65,7 @@ namespace Friendly_Corner_backend.Controllers
         {
             try
             {
+                var baseUrl = $"{Request.Scheme}://{Request.Host}{Request.PathBase}";
                 var users = await _context.Users
                     .Select(u => new
                     {
@@ -73,6 +74,7 @@ namespace Friendly_Corner_backend.Controllers
                         u.Password,
                         Email = u.Email ?? string.Empty,
                         Name = u.Name ?? string.Empty,
+                        //PictureUrl = !string.IsNullOrEmpty(u.PictureUrl) ? $"{baseUrl}/{u.PictureUrl.Replace("\\", "/")}" : string.Empty,
                         PictureUrl = u.PictureUrl ?? string.Empty,
                         WebUrl = u.WebUrl ?? string.Empty,
                         Description = u.Description ?? string.Empty
@@ -139,6 +141,17 @@ namespace Friendly_Corner_backend.Controllers
                     return NotFound("User not found");
                 }
 
+                // Delete the associated image file if it exists
+                if (!string.IsNullOrEmpty(user.PictureUrl))
+                {
+                    var uploadsFolderPath = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot/img-prfl");
+                    var filePath = Path.Combine(uploadsFolderPath, Path.GetFileName(user.PictureUrl));
+                    if (System.IO.File.Exists(filePath))
+                    {
+                        System.IO.File.Delete(filePath);
+                    }
+                }
+
                 _context.Users.Remove(user);
                 await _context.SaveChangesAsync();
                 return Ok("User deleted successfully");
@@ -150,6 +163,28 @@ namespace Friendly_Corner_backend.Controllers
                 return StatusCode(500, "Internal server error");
             }
         }
+
+
+        [HttpPost("uploadProfileImage")]
+        public async Task<IActionResult> UploadProfileImage(IFormFile image)
+        {
+            if (image == null || image.Length == 0)
+                return BadRequest("No image uploaded");
+
+            var uploadsFolderPath = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot/img-prfl");
+            if (!Directory.Exists(uploadsFolderPath))
+                Directory.CreateDirectory(uploadsFolderPath);
+
+            var filePath = Path.Combine(uploadsFolderPath, image.FileName);
+            using (var fileStream = new FileStream(filePath, FileMode.Create))
+            {
+                await image.CopyToAsync(fileStream);
+            }
+
+            var relativePath = Path.Combine("img-prfl", image.FileName);
+            return Ok(new { path = relativePath });
+        }
+
     }
 
     public class LoginDto

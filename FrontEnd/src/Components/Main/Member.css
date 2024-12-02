@@ -3,6 +3,7 @@
     flex-direction: column;
     justify-content: start;
     position: relative;
+    align-items: center;
 }
 
 .photo-box img {
@@ -29,6 +30,6 @@
 }
 
 .photo-box:hover .member-overlay {
-    width: 80%;
+    /* width: 80%; */
     height: 100%;
 }

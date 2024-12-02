@@ -1,7 +1,7 @@
 .admin-cont {
     display: flex;
     font-family: var(--ff-text);
-    height: 100vh;
+    min-height: 100vh;
 }
 
 .logout-cont {
@@ -25,19 +25,6 @@
     cursor: pointer;
 }
 
-.maint-text {
-    font-family: var(--ff-text);
-    display: block;
-    max-width: clamp(300px, 50%, 900px);
-}
-
-.maint-text h1 {
-    margin-bottom: 20px;
-    padding-left: 10px;
-    font-size: clamp(1.5rem, 2vw, 2rem);
-    color: rgb(27, 26, 26);
-}
-
 .adm-sidebar {
     width: clamp(90px, 10%, 150px);
     background-color: var(--clr-bgd-blue);
@@ -57,7 +44,7 @@
     cursor: pointer;
     border-radius: 4px;
     transition: background-color 0.5s;
-    font-size: clamp(0.8rem, 1.2vw, 1.1rem);
+    font-size: clamp(0.8rem, 1.2vw, 1rem);
     z-index: 2;
 }
 
@@ -71,9 +58,8 @@
     background-color: var(--clr-bgd-white);
 }
 
-.maint-text h1 {
-    margin-bottom: 20px;
-    padding-left: 10px;
-    font-size: clamp(1.5rem, 2vw, 2rem);
-    color: rgb(27, 26, 26);
+@media screen and (max-width: 840px) {
+    .colls {
+        display: none;
+    }
 }

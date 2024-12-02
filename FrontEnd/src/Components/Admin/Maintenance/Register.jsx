@@ -1,23 +1,11 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useRef } from 'react';
 import axios from 'axios';
 import './Register.css';
-import UserList from './UserList';
+import Cropper from 'react-cropper';
+import 'cropperjs/dist/cropper.css';
+import { BASE_URL } from '../../../config';  // Import the base URL
 
 const RegisterPage = () => {
-    const [users, setUsers] = useState([]);
-
-    const fetchUsers = async () => {
-        try {
-            const response = await axios.get('https://localhost:7177/api/auth/users');
-            setUsers(response.data);
-        } catch (error) {
-            console.error('Error fetching users:', error);
-        }
-    };
-
-    useEffect(() => {
-        fetchUsers();
-    }, []);
 
     const [username, setUsername] = useState('');
     const [password, setPassword] = useState('');
@@ -27,39 +15,60 @@ const RegisterPage = () => {
     const [email, setEmail] = useState('');
     const [webUrl, setWebUrl] = useState('');
     const [description, setDescription] = useState('');
+    const [imageFile, setImageFile] = useState(null);
+    const cropperRef = useRef(null);
 
-    const handleSubmit = async (e) => {
-        e.preventDefault();
-        try {
-            await axios.post('https://localhost:7177/api/auth/register', { 
-                username, password, role, name, pictureUrl, email, webUrl, description 
-            });
-            alert('User registered successfully');
-            fetchUsers(); // Call fetchUsers after registration
-            
-            // Reset form state 
-            setUsername(''); 
-            setPassword(''); 
-            setRole('user'); 
-            setName(''); 
-            setPictureUrl(''); 
-            setEmail(''); 
-            setWebUrl(''); 
-            setDescription('');
-
-        } catch (error) {
-            if (error.response && error.response.status === 400) {
-                const errorMessage = error.response.data;
-                if (errorMessage === "User already exists") {
-                    alert(errorMessage); // Show the specific error message
-                } else {
-                    alert('Failed to register, please try again.');
-                }
-            } else {
-                console.error('Registration failed', error);
-                alert('Registration failed, please try again.');
-            }
+    const handleImageChange = (e) => {
+        const file = e.target.files[0];
+        if (file && file.type.startsWith('image/')) {
+            const reader = new FileReader();
+            reader.onloadend = () => {
+                setImageFile(reader.result);
+            };
+            reader.readAsDataURL(file);
         }
+    };
+
+    const handleUpload = async () => {
+        if (cropperRef.current && cropperRef.current.cropper) {
+            const canvas = cropperRef.current.cropper.getCroppedCanvas({
+                width: 200, // max width
+                height: 300, // max height (200 * 3/2 aspect ratio)
+            });
+
+            canvas.toBlob(async (blob) => {
+                const formData = new FormData();
+                formData.append('image', blob, `${username}.png`);
+                const uploadResponse = await axios.post(`${BASE_URL}/api/auth/uploadProfileImage`, formData);
+                const imagePath = `${BASE_URL}/${uploadResponse.data.path}`;
+                await registerUser(imagePath);
+            });
+        } else {
+            await registerUser('');
+        }
+    };
+
+    const registerUser = async (imagePath) => {
+        await axios.post(`${BASE_URL}/api/auth/register`, { 
+            username, password, role, name, pictureUrl: imagePath, email, webUrl, description 
+        });
+        alert('User registered successfully');
+        
+        // Reset form state 
+        setUsername(''); 
+        setPassword(''); 
+        setRole('user'); 
+        setName(''); 
+        setPictureUrl(''); 
+        setEmail(''); 
+        setWebUrl(''); 
+        setDescription('');
+        setImageFile(null);
+    };
+
+    const handleSubmit = (e) => {
+        e.preventDefault();
+        handleUpload();
     };
 
     return (
@@ -79,7 +88,7 @@ const RegisterPage = () => {
                         required
                     />
                     <input
-                        type="password"
+                        type="text"
                         placeholder="Password"
                         value={password}
                         onChange={(e) => setPassword(e.target.value)}
@@ -101,13 +110,6 @@ const RegisterPage = () => {
                         required
                     />
                     <input
-                        type="text"
-                        placeholder="Picture URL"
-                        value={pictureUrl}
-                        onChange={(e) => setPictureUrl(e.target.value)}
-                        required
-                    />
-                    <input
                         type="email"
                         placeholder="Email"
                         value={email}
@@ -121,17 +123,33 @@ const RegisterPage = () => {
                         onChange={(e) => setWebUrl(e.target.value)}
                         required
                     />
+                    <input type="file" accept="image/*" id="fileInput" onChange={handleImageChange} />
+                    <label htmlFor="fileInput" className="file-input-label">Choose a picture</label>
+
                     <textarea
                         placeholder="Description"
                         value={description}
                         onChange={(e) => setDescription(e.target.value)}
                         required
                     />
+
                     <button className='reg-btn' type="submit">Register</button>
                 </form>
-                <UserList users={users} fetchUsers={fetchUsers} />
-            </div>
 
+                {imageFile && (
+                    <Cropper
+                        className='cropper'
+                        src={imageFile}
+                        style={{ height: '300px', width: '200px' }}
+                        aspectRatio={2 / 3}
+                        guides={true}
+                        ref={cropperRef}
+                        viewMode={1}
+                        cropBoxResizable={false}
+                        dragMode="move"
+                    />
+                )}
+            </div>
         </div>
         </>
     );

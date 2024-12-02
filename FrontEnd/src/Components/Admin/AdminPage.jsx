@@ -6,7 +6,7 @@ import './AdminPage.css'
 
 function AdminPage() {
   const navigate = useNavigate(); // Initialize useNavigate
-  const [selectedComponent, setSelectedComponent] = useState('Maintenance');
+  const [selectedComponent, setSelectedComponent] = useState('BackgroundChanger');
 
   function handleLogout() {
     // Clear tokens from both localStorage and sessionStorage

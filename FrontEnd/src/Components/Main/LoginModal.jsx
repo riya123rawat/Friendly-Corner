@@ -4,6 +4,7 @@ import Modal from "react-modal";
 import { useNavigate } from 'react-router-dom';
 import axios from "axios";
 
+import { BASE_URL } from '../../config';  // Import the base URL
 
 import './LoginModal.css'
 
@@ -64,11 +65,10 @@ const LoginModal = forwardRef((props, ref) => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-        const response = await axios.post('https://localhost:7177/api/auth/login', {
+        const response = await axios.post(`${BASE_URL}/api/auth/login`, {
             username: username,
             password: password
         });
-        // console.log('Login successful:', response.data);
         const { token } = response.data;
 
         if (rememberMe) {

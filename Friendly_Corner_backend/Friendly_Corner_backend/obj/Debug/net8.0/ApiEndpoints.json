@@ -70,6 +70,22 @@
   },
   {
     "ContainingType": "Friendly_Corner_backend.Controllers.AuthController",
+    "Method": "UploadProfileImage",
+    "RelativePath": "api/Auth/uploadProfileImage",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "image",
+        "Type": "Microsoft.AspNetCore.Http.IFormFile",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "Friendly_Corner_backend.Controllers.AuthController",
     "Method": "GetUsers",
     "RelativePath": "api/Auth/users",
     "HttpMethod": "GET",
